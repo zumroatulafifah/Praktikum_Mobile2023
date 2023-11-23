@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "154121749008",
+    "project_id": "newsapp-bb6bc",
+    "storage_bucket": "newsapp-bb6bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154121749008:android:98b64a0ed74aaaba87c095",
+        "android_client_info": {
+          "package_name": "com.example.newsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCurEJL4Qpako7o_plSO-9Pnh37OLPie7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154121749008:android:d45d264b1cc155fe87c095",
+        "android_client_info": {
+          "package_name": "com.example.travel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCurEJL4Qpako7o_plSO-9Pnh37OLPie7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
