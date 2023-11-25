@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBU0r0_noucRYgh9-zRPKHyvtMLeb81A74',
-    appId: '1:1048741213886:android:a13edab1f375f7c04350ef',
+    appId: '1:1048741213886:android:146839c4f0ee68534350ef',
     messagingSenderId: '1048741213886',
     projectId: 'login-register-firebase-d7462',
     storageBucket: 'login-register-firebase-d7462.appspot.com',
@@ -62,19 +62,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBSJpFLvKmybbCednJ_WQgdHCNtR0AMAkU',
-    appId: '1:1048741213886:ios:5dd83b68f059aa7b4350ef',
+    appId: '1:1048741213886:ios:56eb9cb52ca9ac6a4350ef',
     messagingSenderId: '1048741213886',
     projectId: 'login-register-firebase-d7462',
     storageBucket: 'login-register-firebase-d7462.appspot.com',
-    iosBundleId: 'com.example.firebaseAplication',
+    iosBundleId: 'com.example.newsapp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBSJpFLvKmybbCednJ_WQgdHCNtR0AMAkU',
-    appId: '1:1048741213886:ios:7ccea12445b4bbc74350ef',
+    appId: '1:1048741213886:ios:04087457bc752d744350ef',
     messagingSenderId: '1048741213886',
     projectId: 'login-register-firebase-d7462',
     storageBucket: 'login-register-firebase-d7462.appspot.com',
-    iosBundleId: 'com.example.firebaseAplication.RunnerTests',
+    iosBundleId: 'com.example.newsapp.RunnerTests',
   );
 }

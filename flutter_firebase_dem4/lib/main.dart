@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:newsapp/app/modules/home/controllers/WebView.dart';
 import 'package:newsapp/app/modules/home/controllers/auth_controller.dart';
 import 'package:newsapp/app/modules/home/controllers/notification_handler.dart';
-import 'package:newsapp/firebase_options.dart';
 import 'package:newsapp/app/modules/home/views/login_page.dart.dart';
+import 'package:newsapp/firebase_options.dart';
 import 'package:newsapp/app/modules/home/views/homepage.dart';
 import 'package:newsapp/app/modules/home/views/register_page.dart';
 import 'package:newsapp/app/modules/home/views/article_screen.dart';
@@ -13,30 +13,53 @@ import 'package:newsapp/app/modules/home/views/discover_screen.dart';
 import 'package:newsapp/app/modules/home/controllers/home_controllerAPI.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
+  // Initialize Firebase
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Initialize SharedPreferences
   await Get.putAsync(() async => await SharedPreferences.getInstance());
-  // await FirebaseMessagingHandler().initPushNotification();
 
-  // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  // Initialize Firebase Cloud Messaging
+  await FirebaseMessagingHandler().initPushNotification();
 
-  // // Initialize Firebase Cloud Messaging
-  // await messaging.requestPermission();
+  // Get the messaging instance
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-  // // Get the FCM token
-  // String? token = await messaging.getToken().then((value) {
-  //   print("FCM Token:$value");
-  // });
+  // Request permission for notifications
+  await messaging.requestPermission();
 
+  // VAPID key for web (replace with your actual VAPID key)
+  const vapidKey =
+      "BGKx_D1LrOIJBEGwBukQqzWZLCRoVs-BxPe-m5-hO3oXLk6qvV2tY8zZaXPIUTDvmkPjo5b-PNZuzdCjCMz_5NM";
+
+  // Get FCM token
+  String? token;
+
+  if (DefaultFirebaseOptions.currentPlatform == DefaultFirebaseOptions.web) {
+    // For web platform, use VAPID key
+    token = await messaging.getToken(vapidKey: vapidKey);
+  } else {
+    // For other platforms (iOS, Android), use default method
+    token = await messaging.getToken();
+  }
+
+
+  // Print the FCM token in debug mode
+  if (kDebugMode) {
+    print('Registration Token: $token');
+  }
+
+  // Run the app
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  // Create an instance of AuthController
   final AuthController _authController = Get.put(AuthController());
 
   @override
