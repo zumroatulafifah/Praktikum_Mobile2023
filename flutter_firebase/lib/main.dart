@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/app/modules/home/controllers/auth_controller.dart';
-import 'package:flutter_firebase/app/modules/home/views/login_page.dart';
-import 'package:flutter_firebase/app/modules/home/controllers/notification_hadler.dart';
-import 'package:flutter_firebase/app/modules/home/views/register_page.dart';
+import 'package:flutter_firebase/app/modules/Dashboard/views/WebView.dart';
+import 'package:flutter_firebase/app/modules/Dashboard/views/article_screen.dart';
+import 'package:flutter_firebase/app/modules/Dashboard/views/discover_screen.dart';
+import 'package:flutter_firebase/app/modules/Login/controllers/auth_controller.dart';
+import 'package:flutter_firebase/app/modules/Login/views/home_page.dart';
+import 'package:flutter_firebase/app/modules/Login/views/login_page.dart';
+import 'package:flutter_firebase/app/modules/Login/controllers/notification_hadler.dart';
+import 'package:flutter_firebase/app/modules/Login/views/register_page.dart';
+import 'package:flutter_firebase/app/modules/News/views/home_controllerAPI.dart';
+import 'package:flutter_firebase/app/modules/Profil/views/signup_screen.dart';
 import 'package:flutter_firebase/firebase_options.dart';
 import 'package:get/get.dart';
 
@@ -33,14 +39,16 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: _authController.isLoggedIn.value ? '/Home' : '/',
+      // initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => LoginPage()),
         GetPage(name: '/register', page: () => RegisterPage()),
-        // GetPage(name: '/Home', page: () => homePage()),
-        // GetPage(name: '/discover', page: () => const DiscoverScreen()),
-        // GetPage(name: '/article', page: () => const ArticleScreen()),
-        // GetPage(name: '/api', page: () => HomeAPI()),
-        // GetPage(name: '/webview', page: () => const WebViewApp()),
+        GetPage(name: '/Home', page: () => HomePage()),
+        GetPage(name: '/discover', page: () => DiscoverScreen()),
+        GetPage(name: '/article', page: () => const ArticleScreen()),
+        GetPage(name: '/api', page: () => HomeAPI()),
+        GetPage(name: '/webview', page: () => const WebViewApp()),
+        GetPage(name: '/profile', page: () => SignUpScreen()),
       ],
     );
   }
